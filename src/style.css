@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to bottom,
     #dbdcd7 0%,
     #dddcd7 24%,
@@ -9,7 +9,8 @@ body {
     #801357 71%,
     #3d1635 84%,
     #1c1a27 100%
-  );
+  ); */
+  background-color: #fff;
   font-family: Helvetica, Arial, sans-serif;
 }
 
