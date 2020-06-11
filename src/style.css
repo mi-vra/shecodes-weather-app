@@ -91,7 +91,7 @@ a {
   color: #ff3366;
 }
 a:hover {
-  color: #fff;
+  color: rgb(94, 123, 255);
   text-decoration: none;
 }
 
