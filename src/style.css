@@ -1,0 +1,169 @@
+body {
+  background-image: linear-gradient(
+    to bottom,
+    #dbdcd7 0%,
+    #dddcd7 24%,
+    #e2c9cc 30%,
+    #e7627d 46%,
+    #b8235a 59%,
+    #801357 71%,
+    #3d1635 84%,
+    #1c1a27 100%
+  );
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+form {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+  /* do not touch these for now */
+}
+
+button,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: lighter;
+}
+
+button {
+  background: #ff3366;
+  border: 1px solid #ff3366;
+  border-radius: 15px;
+  box-shadow: 5px -3px 10px rgb(214, 214, 214);
+  color: #fff;
+  margin-left: 10px;
+  padding: 5px 20px;
+  margin: 5px;
+}
+
+button:hover {
+  color: #ff3366;
+  background: #fff;
+}
+
+h1 {
+  color: #6d144d;
+  font-size: 32px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 5px 0 0;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+
+h2 {
+  background: #6d144d;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+h3 {
+  color: rgb(95, 95, 95);
+  font-size: 17px;
+  padding: 0;
+  margin: 0;
+}
+h4 {
+  background: #6d144d;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 20px;
+  padding-top: 3px;
+}
+
+p {
+  color: #fff;
+  font-family: monospace;
+  font-size: 12px;
+  margin-bottom: 120px;
+  margin-top: 50px;
+  text-align: center;
+}
+a {
+  color: #ff3366;
+}
+a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.content {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.temperature {
+  color: blue;
+}
+.temperature:hover {
+  color: lightblue;
+}
+.main {
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 15px;
+}
+
+.search {
+  border: 1px solid #d8d8d8;
+  border-radius: 15px;
+  box-shadow: 5px -3px 10px rgb(214, 214, 214);
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+  padding: 5px 20px;
+  margin-left: 10px;
+  width: 61%;
+}
+
+.container {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.card-deck {
+  margin-top: 20px;
+  border: none;
+}
+
+.card-body {
+  filter: grayscale(100%);
+}
+.card-body:hover {
+  filter: none;
+  transition: all 200ms ease-in;
+}
+.rounded-lg {
+  border: 1px solid #d8d8d8;
+}
+
+.icons {
+  width: 100%;
+}
+
+.icons-main {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.city {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.temp-log {
+  margin-left: 20px;
+}
+.card-deck {
+  background: transparent;
+}

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What's the weather?</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="src/style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <form id="location-search">
+        <input
+          type="search"
+          name="search"
+          id="location-input"
+          class="search"
+          placeholder="Type in your favorite city"
+          autocomplete="off"
+          autofocus="off"
+        />
+        <button id="search-button">Search</button>
+        <button id="localization-button">Current location</button>
+      </form>
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-12">
+            <div class="row main">
+              <div class="col-sm-3">
+                <img
+                  src="icons/iconfinder_weather-01_1530392.png"
+                  alt="sunny"
+                  width="512"
+                  class="icons-main"
+                />
+              </div>
+              <div class="col-sm-5 city">
+                <h2 id="date"></h2>
+                <h1 id="city"></h1>
+                <h3 id="country"></h3>
+              </div>
+
+              <div class="col-sm city">
+                <h1 class="temp-log" id="temp-log">
+                  <span id="temp-value"></span>
+                  <a href="#" id="celsius" class="temperature">°C</a> /
+                  <a href="#" id="fahrenheit" class="temperature">°F</a>
+                </h1>
+                <h3 id="wind" class="temp-log"></h3>
+                <h3 id="humidity" class="temp-log"></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-deck">
+          <div class="card rounded-lg mr-0 ml-1">
+            <div class="card-body text-center no-1">
+              <h4 class="card-title">Fri</h4>
+              <h5 class="card-text">
+                25 °C / F
+              </h5>
+              <img
+                src="icons/iconfinder_weather-01_1530392.png"
+                alt="sunny"
+                width="512"
+                class="icons"
+              />
+            </div>
+          </div>
+          <div class="card rounded-lg mr-0 ml-1">
+            <div class="card-body text-center">
+              <h4 class="card-title">Sat</h4>
+              <h5 class="card-text">
+                25 °C / F
+              </h5>
+              <img
+                src="icons/iconfinder_weather-08_1530385.png"
+                alt="sunny"
+                width="512"
+                class="icons"
+              />
+            </div>
+          </div>
+          <div class="card rounded-lg mr-0 ml-1">
+            <div class="card-body text-center">
+              <h4 class="card-title">Sun</h4>
+              <h5 class="card-text">
+                25 °C / F
+              </h5>
+              <img
+                src="icons/iconfinder_weather-24_1530371.png"
+                alt="sunny"
+                width="512"
+                class="icons"
+              />
+            </div>
+          </div>
+          <div class="card rounded-lg mr-0 ml-1">
+            <div class="card-body text-center">
+              <h4 class="card-title">Mon</h4>
+              <h5 class="card-text">
+                25 °C / F
+              </h5>
+              <img
+                src="icons/iconfinder_weather-11_1530383.png"
+                alt="sunny"
+                width="512"
+                class="icons"
+              />
+            </div>
+          </div>
+
+          <div class="card rounded-lg mr-0 ml-1">
+            <div class="card-body text-center">
+              <h4 class="card-title">Tue</h4>
+              <h5 class="card-text">
+                25 °C / F
+              </h5>
+              <img
+                src="icons/iconfinder_weather-16_1530377.png"
+                alt="sunny"
+                width="512"
+                class="icons"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p>coded by <a href="https://www.instagram.com/michala.vr/">mi.vra</a></p>
+
+    <script src="src/app.js"></script>
+  </body>
+</html>
