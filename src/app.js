@@ -1,12 +1,13 @@
 ////////////////////////////////////////////////////////////////////////////////////////////
-//Show date part
+//Last updated feature
 
 function formatDate(date) {
-  let hours = date.getHours();
+  let now = new Date(date);
+  let hours = now.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
-  let minutes = date.getMinutes();
+  let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
@@ -25,10 +26,6 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
-let dateRightNow = document.querySelector("#date");
-let now = new Date();
-
-dateRightNow.innerHTML = formatDate(now);
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 //Search part
@@ -53,6 +50,11 @@ function showWeather(response) {
   let windInfo = document.querySelector("#wind");
   let windValue = Math.round(response.data.wind.speed);
   windInfo.innerHTML = `Wind: ${windValue} km/h`;
+
+  let timestampInfo = document.querySelector("#date");
+  timestampInfo.innerHTML = `Last updated: ${formatDate(
+    response.data.dt * 1000
+  )}`;
 }
 
 function searchLocation(city) {
