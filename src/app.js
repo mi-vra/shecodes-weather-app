@@ -31,28 +31,26 @@ function formatDate(date) {
 //Search part
 
 function showWeather(response) {
-  let cityInfo = document.querySelector("#city");
-  let cityValue = response.data.name;
-  cityInfo.innerHTML = cityValue;
+  console.log(response.data);
 
-  let countryInfo = document.querySelector("#country");
-  let countryValue = response.data.sys.country;
-  countryInfo.innerHTML = countryValue;
+  document.querySelector("#city").innerHTML = response.data.name;
 
-  let temperatureNow = Math.round(response.data.main.temp);
-  let temperatureValueCelsius = document.querySelector("#temp-value");
-  temperatureValueCelsius.innerHTML = temperatureNow;
+  document.querySelector("#country").innerHTML = response.data.sys.country;
 
-  let humidityInfo = document.querySelector("#humidity");
-  let humidityValue = Math.round(response.data.main.humidity);
-  humidityInfo.innerHTML = `Humidity: ${humidityValue}%`;
+  document.querySelector("#temp-value").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector("#humidity").innerHTML = `Humidity: ${Math.round(
+    response.data.main.humidity
+  )}%`;
+  document.querySelector("#wind").innerHTML = `Wind: ${Math.round(
+    response.data.wind.speed
+  )} km/h`;
 
-  let windInfo = document.querySelector("#wind");
-  let windValue = Math.round(response.data.wind.speed);
-  windInfo.innerHTML = `Wind: ${windValue} km/h`;
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
 
-  let timestampInfo = document.querySelector("#date");
-  timestampInfo.innerHTML = `Last updated: ${formatDate(
+  document.querySelector("#date").innerHTML = `Last updated: ${formatDate(
     response.data.dt * 1000
   )}`;
 }
