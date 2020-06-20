@@ -37,8 +37,10 @@ function showWeather(response) {
 
   document.querySelector("#country").innerHTML = response.data.sys.country;
 
+  temperatureCelsius = response.data.main.temp;
+
   document.querySelector("#temp-value").innerHTML = Math.round(
-    response.data.main.temp
+    temperatureCelsius
   );
   document.querySelector("#humidity").innerHTML = `Humidity: ${Math.round(
     response.data.main.humidity
@@ -94,26 +96,39 @@ currentLocationButton.addEventListener("click", localizeUser);
 let form = document.querySelector("form");
 form.addEventListener("submit", handleSubmit);
 
-function convertToFahrenheit() {
+function convertToFahrenheit(event) {
   event.preventDefault();
-  let temperatureCelsius = 17;
-  let temperatureFahrenheit = temperatureCelsius * 1.8 + 32;
-  let temperatureShown = document.querySelector("#temp-value");
-  temperatureShown.innerHTML = Math.round(temperatureFahrenheit);
+  document.querySelector("#temp-value").innerHTML = Math.round(
+    temperatureCelsius * 1.8 + 32
+  );
+  convertFahrenheit.classList.add("active");
+  convertCelsius.classList.remove("active");
 }
 
-function convertToCelsius() {
-  let temperatureFahrenheit = 62.6;
-  let temperatureCelsius = ((temperatureFahrenheit - 32) * 5) / 9;
-  let temperatureShown = document.querySelector("#temp-value");
-  temperatureShown.innerHTML = temperatureCelsius;
+function convertToCelsius(event) {
+  event.preventDefault();
+  document.querySelector("#temp-value").innerHTML = Math.round(
+    temperatureCelsius
+  );
+  convertCelsius.classList.add("active");
+  convertFahrenheit.classList.remove("active");
 }
 
-let temp = document.querySelector("#temp-value");
+// function convertToCelsius() {
+//   let temperatureFahrenheit = 62.6;
+//   let temperatureCelsius = ((temperatureFahrenheit - 32) * 5) / 9;
+//   let temperatureShown = document.querySelector("#temp-value");
+//   temperatureShown.innerHTML = temperatureCelsius;
+// }
+
+// let temp = document.querySelector("#temp-value");
+
 let convertFahrenheit = document.querySelector("#fahrenheit");
-let convertCelsius = document.querySelector("#celsius");
-
 convertFahrenheit.addEventListener("click", convertToFahrenheit);
+
+let temperatureCelsius = null;
+
+let convertCelsius = document.querySelector("#celsius");
 convertCelsius.addEventListener("click", convertToCelsius);
 
 searchLocation("Montreal");

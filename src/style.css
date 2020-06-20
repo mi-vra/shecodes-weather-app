@@ -113,10 +113,29 @@ a:hover {
 
 .temperature {
   color: blue;
+  position: relative;
+  font-size: 20px;
+  top: -7px;
+  margin-left: 0;
+  left: -5px;
+  margin: 0;
 }
 .temperature:hover {
   color: lightblue;
 }
+
+.temperature.active {
+  color: #6d144d;
+  cursor: default;
+}
+.text {
+  font-size: 20px;
+  position: relative;
+  top: -7px;
+  left: -5px;
+  margin: 0;
+}
+
 .main {
   background: #fff;
   border: 1px solid #d8d8d8;
@@ -173,6 +192,8 @@ a:hover {
 
 .temp-log {
   margin-left: 20px;
+  position: relative;
+  top: -10px;
 }
 .card-deck {
   background: transparent;
