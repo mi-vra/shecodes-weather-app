@@ -53,6 +53,10 @@ function showWeather(response) {
   document.querySelector("#date").innerHTML = `Last updated: ${formatDate(
     response.data.dt * 1000
   )}`;
+
+  document
+    .querySelector("#icon")
+    .setAttribute("src", `icons/${response.data.weather[0].icon}.png`);
 }
 
 function searchLocation(city) {
