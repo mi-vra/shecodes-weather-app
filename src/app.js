@@ -78,8 +78,10 @@ function showForecast(response) {
             <div class="card-body text-center no-1">
               <h4 class="card-title">${formatHours(forecastData.dt * 1000)}</h4>
               <h5 class="card-text">
-                <span>${Math.round(forecastData.main.temp)}</span>
-                °C / F
+                <span id= "temp-value-forecast">${Math.round(
+                  forecastData.main.temp
+                )}°</span>
+              
               </h5>
               <img
                 src="icons/${forecastData.weather[0].icon}.png"
@@ -135,6 +137,7 @@ function convertToFahrenheit(event) {
   document.querySelector("#temp-value").innerHTML = Math.round(
     temperatureCelsius * 1.8 + 32
   );
+
   convertFahrenheit.classList.add("active");
   convertCelsius.classList.remove("active");
 }

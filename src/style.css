@@ -1,25 +1,14 @@
 body {
-  /* background-image: linear-gradient(
-    to bottom,
-    #dbdcd7 0%,
-    #dddcd7 24%,
-    #e2c9cc 30%,
-    #e7627d 46%,
-    #b8235a 59%,
-    #801357 71%,
-    #3d1635 84%,
-    #1c1a27 100%
-  ); */
   background-color: #fff;
   font-family: Helvetica, Arial, sans-serif;
 }
 
-form {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  margin-top: 40px;
-  /* do not touch these for now */
+a {
+  color: #ff3366;
+}
+a:hover {
+  color: rgb(94, 123, 255);
+  text-decoration: none;
 }
 
 button,
@@ -44,6 +33,14 @@ button {
 button:hover {
   color: #ff3366;
   background: #fff;
+}
+
+form {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+  /* do not touch these for now */
 }
 
 h1 {
@@ -76,10 +73,6 @@ h3::first-letter {
   text-transform: capitalize;
 }
 
-#description {
-  font-weight: bold;
-}
-
 h4 {
   background: #6d144d;
   color: #ffffff;
@@ -96,12 +89,29 @@ p {
   margin-top: 50px;
   text-align: center;
 }
-a {
-  color: #ff3366;
+
+.card-deck {
+  background: transparent;
+  margin-top: 20px;
+  border: none;
+  padding: 0;
 }
-a:hover {
-  color: rgb(94, 123, 255);
-  text-decoration: none;
+
+.card-body {
+  filter: grayscale(100%);
+}
+.card-body:hover {
+  filter: none;
+  transition: all 200ms ease-in;
+}
+.city {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.container {
+  margin-top: 30px;
+  width: 100%;
 }
 
 .content {
@@ -109,6 +119,38 @@ a:hover {
   width: 60%;
   margin: 0 auto;
   margin-top: 30px;
+}
+
+.icons {
+  width: 100%;
+}
+
+.icons-main {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.main {
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 15px;
+}
+
+.rounded-lg {
+  border: 1px solid #d8d8d8;
+}
+
+.search {
+  border: 1px solid #d8d8d8;
+  border-radius: 15px;
+  box-shadow: 5px -3px 10px rgb(214, 214, 214);
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: lighter;
+  padding: 5px 20px;
+  margin-left: 10px;
+  width: 61%;
 }
 
 .temperature {
@@ -128,6 +170,12 @@ a:hover {
   color: #6d144d;
   cursor: default;
 }
+
+.temp-log {
+  margin-left: 20px;
+  position: relative;
+  top: -10px;
+}
 .text {
   font-size: 20px;
   position: relative;
@@ -136,65 +184,6 @@ a:hover {
   margin: 0;
 }
 
-.main {
-  background: #fff;
-  border: 1px solid #d8d8d8;
-  border-radius: 15px;
-}
-
-.search {
-  border: 1px solid #d8d8d8;
-  border-radius: 15px;
-  box-shadow: 5px -3px 10px rgb(214, 214, 214);
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: lighter;
-  padding: 5px 20px;
-  margin-left: 10px;
-  width: 61%;
-}
-
-.container {
-  margin-top: 30px;
-  width: 100%;
-}
-
-.card-deck {
-  margin-top: 20px;
-  border: none;
-}
-
-.card-body {
-  filter: grayscale(100%);
-}
-.card-body:hover {
-  filter: none;
-  transition: all 200ms ease-in;
-}
-.rounded-lg {
-  border: 1px solid #d8d8d8;
-}
-
-.icons {
-  width: 100%;
-}
-
-.icons-main {
-  width: 100%;
-  display: block;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.city {
-  margin-top: 30px;
-  margin-bottom: 30px;
-}
-
-.temp-log {
-  margin-left: 20px;
-  position: relative;
-  top: -10px;
-}
-.card-deck {
-  background: transparent;
+#description {
+  font-weight: bold;
 }
