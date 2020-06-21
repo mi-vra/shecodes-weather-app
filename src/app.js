@@ -66,65 +66,30 @@ function showWeather(response) {
 
 function showForecast(response) {
   console.log(response.data);
-  document.querySelector("#forecast-01-temp").innerHTML = Math.round(
-    response.data.list[0].main.temp
-  );
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecastData = null;
 
-  document
-    .querySelector("#icon-forecast-01")
-    .setAttribute("src", `icons/${response.data.list[0].weather[0].icon}.png`);
-
-  document.querySelector("#forecast-01").innerHTML = formatHours(
-    response.data.list[0].dt * 1000
-  );
-
-  document.querySelector("#forecast-02-temp").innerHTML = Math.round(
-    response.data.list[1].main.temp
-  );
-
-  document
-    .querySelector("#icon-forecast-02")
-    .setAttribute("src", `icons/${response.data.list[1].weather[0].icon}.png`);
-
-  document.querySelector("#forecast-02").innerHTML = formatHours(
-    response.data.list[1].dt * 1000
-  );
-
-  document.querySelector("#forecast-03-temp").innerHTML = Math.round(
-    response.data.list[2].main.temp
-  );
-
-  document
-    .querySelector("#icon-forecast-03")
-    .setAttribute("src", `icons/${response.data.list[2].weather[0].icon}.png`);
-
-  document.querySelector("#forecast-03").innerHTML = formatHours(
-    response.data.list[2].dt * 1000
-  );
-
-  document.querySelector("#forecast-04-temp").innerHTML = Math.round(
-    response.data.list[3].main.temp
-  );
-
-  document
-    .querySelector("#icon-forecast-04")
-    .setAttribute("src", `icons/${response.data.list[3].weather[0].icon}.png`);
-
-  document.querySelector("#forecast-04").innerHTML = formatHours(
-    response.data.list[3].dt * 1000
-  );
-
-  document.querySelector("#forecast-05-temp").innerHTML = Math.round(
-    response.data.list[4].main.temp
-  );
-
-  document
-    .querySelector("#icon-forecast-05")
-    .setAttribute("src", `icons/${response.data.list[4].weather[0].icon}.png`);
-
-  document.querySelector("#forecast-05").innerHTML = formatHours(
-    response.data.list[4].dt * 1000
-  );
+  for (let index = 0; index < 5; index++) {
+    forecastData = response.data.list[index];
+    forecastElement.innerHTML += `
+  
+          <div class="card rounded-lg mr-0 ml-1">
+            <div class="card-body text-center no-1">
+              <h4 class="card-title">${formatHours(forecastData.dt * 1000)}</h4>
+              <h5 class="card-text">
+                <span>${Math.round(forecastData.main.temp)}</span>
+                °C / F
+              </h5>
+              <img
+                src="icons/${forecastData.weather[0].icon}.png"
+                width="512"
+                class="icons"
+              />
+            </div>
+          </div>
+  `;
+  }
 }
 
 function searchLocation(city) {
