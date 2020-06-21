@@ -1,17 +1,8 @@
 ////////////////////////////////////////////////////////////////////////////////////////////
 //Last updated feature
 
-function formatDate(date) {
-  let now = new Date(date);
-  let hours = now.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = now.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
-
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -23,7 +14,21 @@ function formatDate(date) {
   ];
   let day = days[now.getDay()];
 
-  return `${day} ${hours}:${minutes}`;
+  return `${day} ${formatHours(timestamp)}`;
+}
+
+function formatHours(timestamp) {
+  let now = new Date(timestamp);
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${hours}:${minutes}`;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,8 +36,6 @@ function formatDate(date) {
 //Search part
 
 function showWeather(response) {
-  console.log(response.data);
-
   document.querySelector("#city").innerHTML = response.data.name;
 
   document.querySelector("#country").innerHTML = response.data.sys.country;
@@ -61,10 +64,76 @@ function showWeather(response) {
     .setAttribute("src", `icons/${response.data.weather[0].icon}.png`);
 }
 
+function showForecast(response) {
+  console.log(response.data);
+  document.querySelector("#forecast-01-temp").innerHTML = Math.round(
+    response.data.list[0].main.temp
+  );
+
+  document
+    .querySelector("#icon-forecast-01")
+    .setAttribute("src", `icons/${response.data.list[0].weather[0].icon}.png`);
+
+  document.querySelector("#forecast-01").innerHTML = formatHours(
+    response.data.list[0].dt * 1000
+  );
+
+  document.querySelector("#forecast-02-temp").innerHTML = Math.round(
+    response.data.list[1].main.temp
+  );
+
+  document
+    .querySelector("#icon-forecast-02")
+    .setAttribute("src", `icons/${response.data.list[1].weather[0].icon}.png`);
+
+  document.querySelector("#forecast-02").innerHTML = formatHours(
+    response.data.list[1].dt * 1000
+  );
+
+  document.querySelector("#forecast-03-temp").innerHTML = Math.round(
+    response.data.list[2].main.temp
+  );
+
+  document
+    .querySelector("#icon-forecast-03")
+    .setAttribute("src", `icons/${response.data.list[2].weather[0].icon}.png`);
+
+  document.querySelector("#forecast-03").innerHTML = formatHours(
+    response.data.list[2].dt * 1000
+  );
+
+  document.querySelector("#forecast-04-temp").innerHTML = Math.round(
+    response.data.list[3].main.temp
+  );
+
+  document
+    .querySelector("#icon-forecast-04")
+    .setAttribute("src", `icons/${response.data.list[3].weather[0].icon}.png`);
+
+  document.querySelector("#forecast-04").innerHTML = formatHours(
+    response.data.list[3].dt * 1000
+  );
+
+  document.querySelector("#forecast-05-temp").innerHTML = Math.round(
+    response.data.list[4].main.temp
+  );
+
+  document
+    .querySelector("#icon-forecast-05")
+    .setAttribute("src", `icons/${response.data.list[4].weather[0].icon}.png`);
+
+  document.querySelector("#forecast-05").innerHTML = formatHours(
+    response.data.list[4].dt * 1000
+  );
+}
+
 function searchLocation(city) {
   let apiKey = "bbf57d20e1cd86b6b49445b7a439032d";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
+
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function handleSubmit(event) {
@@ -113,15 +182,6 @@ function convertToCelsius(event) {
   convertCelsius.classList.add("active");
   convertFahrenheit.classList.remove("active");
 }
-
-// function convertToCelsius() {
-//   let temperatureFahrenheit = 62.6;
-//   let temperatureCelsius = ((temperatureFahrenheit - 32) * 5) / 9;
-//   let temperatureShown = document.querySelector("#temp-value");
-//   temperatureShown.innerHTML = temperatureCelsius;
-// }
-
-// let temp = document.querySelector("#temp-value");
 
 let convertFahrenheit = document.querySelector("#fahrenheit");
 convertFahrenheit.addEventListener("click", convertToFahrenheit);
