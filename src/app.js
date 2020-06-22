@@ -65,22 +65,22 @@ function showWeather(response) {
 }
 
 function showForecast(response) {
-  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = null;
   let forecastData = null;
 
   for (let index = 0; index < 5; index++) {
     forecastData = response.data.list[index];
+    temperatureCelsiusForecast[index] = forecastData.main.temp;
     forecastElement.innerHTML += `
   
           <div class="card rounded-lg mr-0 ml-1">
             <div class="card-body text-center no-1">
               <h4 class="card-title">${formatHours(forecastData.dt * 1000)}</h4>
               <h5 class="card-text">
-                <span id= "temp-value-forecast">${Math.round(
-                  forecastData.main.temp
-                )}°</span>
+                <span id= "temp-value-forecast-${index}">${Math.round(
+      temperatureCelsiusForecast[index]
+    )}°</span>
               
               </h5>
               <img
@@ -138,6 +138,14 @@ function convertToFahrenheit(event) {
     temperatureCelsius * 1.8 + 32
   );
 
+  for (let index = 0; index < 5; index++) {
+    document.querySelector(
+      `#temp-value-forecast-${index}`
+    ).innerHTML = `${Math.round(
+      temperatureCelsiusForecast[index] * 1.8 + 32
+    )}°`;
+  }
+
   convertFahrenheit.classList.add("active");
   convertCelsius.classList.remove("active");
 }
@@ -147,6 +155,11 @@ function convertToCelsius(event) {
   document.querySelector("#temp-value").innerHTML = Math.round(
     temperatureCelsius
   );
+  for (let index = 0; index < 5; index++) {
+    document.querySelector(
+      `#temp-value-forecast-${index}`
+    ).innerHTML = `${Math.round(temperatureCelsiusForecast[index])}°`;
+  }
   convertCelsius.classList.add("active");
   convertFahrenheit.classList.remove("active");
 }
@@ -155,6 +168,10 @@ let convertFahrenheit = document.querySelector("#fahrenheit");
 convertFahrenheit.addEventListener("click", convertToFahrenheit);
 
 let temperatureCelsius = null;
+let temperatureCelsiusForecast = [];
+for (let index = 0; index < 5; index++) {
+  temperatureCelsiusForecast[index] = null;
+}
 
 let convertCelsius = document.querySelector("#celsius");
 convertCelsius.addEventListener("click", convertToCelsius);
